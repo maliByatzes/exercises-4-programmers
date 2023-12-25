@@ -17,10 +17,19 @@ use std::io::stdin;
 fn get_word() -> String {
     let mut word = String::new();
 
-    println!("What is the input string:");
-    stdin().read_line(&mut word).expect("failed to read word");
+    loop {
+        println!("What is the input string:");
+        stdin().read_line(&mut word).expect("failed to read word");
+        word = word.trim().to_owned();
 
-    word.trim().to_owned()
+        if word == "" {
+            println!("You must enter something to continue.")
+        } else {
+            break;
+        }
+    }
+
+    word
 }
 
 pub fn count_word(word: &String) -> i32 {
