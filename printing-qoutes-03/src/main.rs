@@ -24,7 +24,7 @@ fn main() {
     let mut qoutes = HashMap::new();
 
     qoutes.insert(
-        "These aren't thedroid you are looking for.",
+        "These aren't the droids you are looking for.",
         "Obi-Wan Kenobi",
     );
     qoutes.insert("Knowledge is power.", "Sir Francis Bacon");
