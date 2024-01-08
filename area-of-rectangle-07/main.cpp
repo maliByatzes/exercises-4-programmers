@@ -20,6 +20,8 @@
 #include <iostream>
 
 int main() {
+  const auto conversion_factor{0.09290304};
+
   int length{0};
   std::cout << "What is the length of the room in feet? ";
   std::cin >> length;
@@ -35,7 +37,7 @@ int main() {
 
   std::cout << "The area is " << area << " square feet\n";
 
-  std::cout << area * 0.09290304 << " square meters\n";
+  std::cout << area * conversion_factor << " square meters\n";
 
   return 0;
 }
