@@ -17,7 +17,9 @@
 // • Keep the calculations separate from the output.
 // • Use a constant to hold the conversion factor.
 
+#include <ios>
 #include <iostream>
+#include <limits>
 
 int main() {
   const auto conversion_factor{0.09290304};
@@ -25,10 +27,30 @@ int main() {
   int length{0};
   std::cout << "What is the length of the room in feet? ";
   std::cin >> length;
+  while (1) {
+    if (std::cin.fail()) {
+      std::cin.clear();
+      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+      std::cout << "Enter a number to continue: ";
+      std::cin >> length;
+    }
+    if (!std::cin.fail())
+      break;
+  }
 
   int width{0};
   std::cout << "What is the width of the room in feet? ";
   std::cin >> width;
+  while (1) {
+    if (std::cin.fail()) {
+      std::cin.clear();
+      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+      std::cout << "Enter a number to continue: ";
+      std::cin >> width;
+    }
+    if (!std::cin.fail())
+      break;
+  }
 
   std::cout << "You entered dimensions of " << length << " feet by " << width
             << " feet.\n";
